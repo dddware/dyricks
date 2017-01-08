@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "start": "node index.js",
+    "install": "test -f config.json || cp config.json.dist config.json"
+  },
+  "dependencies": {
+    "encodeurl": "^1.0.1",
+    "promise": "^7.1.1",
+    "request": "^2.79.0"
+  }
+}
