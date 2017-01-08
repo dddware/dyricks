@@ -1,0 +1,26 @@
+{
+  "name": "dyricks",
+  "version": "1.0.0",
+  "description": "I'M ENJOYING A TREAT, DYRICKS!!",
+  "main": "index.js",
+  "dependencies": {
+    "node": "^0.0.0"
+  },
+  "devDependencies": {
+    "pug": "^2.0.0-beta6",
+    "watch": "^1.0.1"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dddware/dyricks.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dddware/dyricks/issues"
+  },
+  "homepage": "https://github.com/dddware/dyricks#readme"
+}
