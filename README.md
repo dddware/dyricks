@@ -1,21 +1,27 @@
 # dyricks
 
+Guitar-chord-augmented song lyrics on a fancy webpage
+
 ## Setup
 
 ```
 npm install
-subl config.json # add your GuitarParty API key
+npm start
 ```
 
 ## Usage
 
-### CLI
-
-```
-node test.js # run test script with "simon and garfunkel sound of silence"
-npm start # start web server exposing API (soon)
-```
-
 ### API
 
+```
+curl http://localhost:3000/api?q=bad+religion+los+angeles+is+burning
+curl http://localhost:3000/api.html?q=bad+religion+los+angeles+is+burning # preserve original markup
+```
+
+### Web
+
 (soon)
+
+```
+firefox http://localhost:3000
+```
