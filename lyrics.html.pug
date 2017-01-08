@@ -2,15 +2,16 @@ doctype html
 html(lang="en")
 head
   meta(charset="UTF-8")
-  title(Lyrics)
-  link(rel="stylesheet" href="lyrics.css")
+  title(Dyrics)
+  link(rel="stylesheet" href="dyrics.css")
 body
   .content
     input(type="radio" id="toggle-0" name="toggle" checked="checked")
-    input(type="radio" id="toggle-1" name="toggle")
-    input(type="radio" id="toggle-2" name="toggle")
+    each song, i in songs
+      - var forName = "toggle-" + (i+1)
+      input(type="radio" id=forName name="toggle")
     nav.nav
-      style(type="text/css" id="searchStyle")
+      style(id="searchStyle")
       input(type="text" id="searchbar" placeholder="Search")
 
       .label-list
@@ -23,6 +24,7 @@ body
             = song
 
     section.song-list
+      article.song#song-ug
       article.song#song-0
         h1 Nothing to see here
       article.song#song-1.
@@ -104,19 +106,4 @@ body
         Even the stars are ill at ease
         And los angeles is burning
 
-script.
-  var
-    searchbar = document.getElementById('searchbar'),
-    searchStyle = document.getElementById('searchStyle');
-
-
-  function refreshSongList () {
-    if (this.value.length > 0) {
-      searchStyle.innerHTML = "label:not([data-clue*='"+this.value +"']){display: none}";
-    } else {
-      searchStyle.innerHTML= '';
-    }
-
-  }
-
-  searchbar.addEventListener('keyup', refreshSongList);
+script(src="dyrics.js")

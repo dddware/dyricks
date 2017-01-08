@@ -21,9 +21,6 @@ label:hover {
   color: #fff;
 }
 
-.song-list {
-  white-space: pre-line;
-}
 [type="radio"], #searchStyle {
   display: none;
 }
@@ -115,6 +112,7 @@ input::-webkit-input-placeholder {
   overflow: hidden;
   position: relative;
   background: rgba(0,0,0,.1);
+  white-space: pre-line;
 }
 
 .song {
@@ -138,6 +136,26 @@ input::-webkit-input-placeholder {
   /* fadeout */
   transition: all 0.3s;
 }
+
+.song.pending {
+  background: url('http://i612.photobucket.com/albums/tt207/featherliteness/Stuff/gifRainbowSpiral.gif') no-repeat center center;
+}
+
+.song.pending,
+.song.pending span {
+  color: transparent;
+}
+
+.song.active,
+.song.active span {
+  font-family: monospace;
+}
+
+.song.active:not(.pending) span {
+  color: cyan;
+}
+
+.song.active,
 #toggle-0:checked ~ .song-list #song-0,
 #toggle-1:checked ~ .song-list #song-1,
 #toggle-2:checked ~ .song-list #song-2,

@@ -22,7 +22,7 @@ module.exports = function(html) {
             var cells = row.childNodes.filter(function(node) { return node.nodeName === 'td'; });
 
             // This is gonna be quite a bit magical.
-            if (cells[3].childNodes[0].childNodes[0].value === 'chords') {
+            if ((cells[3].childNodes.length) && (cells[3].childNodes[0].childNodes[0].value === 'chords')) {
                 var url = findAttributeValue(cells[1].childNodes[1].childNodes[1], 'href'),
 
                     nbStars = !(cells[2].childNodes.length && 'childNodes' in cells[2].childNodes[0]) ? 0 :

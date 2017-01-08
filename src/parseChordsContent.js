@@ -11,9 +11,14 @@ var parse5 = require('parse5'),
  * @return {String}
  */
 module.exports = function(toHtml, html) {
-    var nodes = findNodesByClassName('js-tab-content', parse5.parse(html))[0];
+    var node = findNodesByClassName('js-tab-content', parse5.parse(html))[0];
 
-    return toHtml
-        ? parse5.serialize(nodes)
-        : flattenToText(nodes);
+    if (toHtml) {
+        return parse5.serialize(node)
+            .replace(/<(\/?span)>/g, '§$1§')
+            .replace(/<|>/g, '')
+            .replace(/§([^§]+)§/g, '<$1>');
+    }
+
+    return flattenToText(node);
 };

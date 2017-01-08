@@ -20,8 +20,6 @@ curl http://localhost:3000/api.html?q=bad+religion+los+angeles+is+burning # pres
 
 ### Web
 
-(soon)
-
 ```
 firefox http://localhost:3000
 ```
