@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "encodeurl": "^1.0.1",
+    "express": "^4.14.0",
+    "parse5": "^3.0.1",
+    "promise": "^7.1.1",
+    "request": "^2.79.0",
+    "request-promise": "^4.1.1"
+  }
+}
