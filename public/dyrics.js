@@ -17,7 +17,7 @@
 
   searchbar.addEventListener('keyup', refreshSongList);
 
-  Array.prototype.slice.call(document.querySelectorAll('label[data-clue]'), 0).forEach(function(node) {
+  Array.prototype.slice.call(document.querySelectorAll('label'), 0).forEach(function(node) {
     node.addEventListener('click', function() {
       songUg.classList.remove('active');
 
