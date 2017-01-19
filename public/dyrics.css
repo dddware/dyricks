@@ -71,6 +71,7 @@ input::-webkit-input-placeholder {
 .nav {
   flex: 1 1 20%;
   position: relative;
+  overflow: hidden;
   border-right: 1px dotted rgba(255,255,255,0.1);
   box-shadow: 0 0 15px rgba(0,0,0,0.25);
   color: rgba(255,255,255, 0.5);
@@ -124,21 +125,77 @@ input::-webkit-input-placeholder {
   padding: 2em 4em;
   letter-spacing: 0.02em;
   overflow: auto;
-  font-size: 21px;
-  color: #fff;
+  font-size: 18px;
+  font-family: monospace;
+  color: transparent;
   line-height: 1.618;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  opacity: 0;
+  /*text-shadow: 0 1px 2px rgba(0,0,0,0.2);*/
+  background-position: center;
   -webkit-columns: 2;
   transform-origin: left center;
-  transform: translateX(-10%) translateZ(1px);
   pointer-events: none;
   /* fadeout */
-  transition: all 0.3s;
+  transition: all 0.16s;
+}
+.song span {
+  transition: inherit;
+}
+.song.active span {
+  color: cyan;
+}
+.song.pending {
+  background: url('http://i612.photobucket.com/albums/tt207/featherliteness/Stuff/gifRainbowSpiral.gif') no-repeat center;
+}
+.song:before, .song:after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+
+}
+.song.pending:before {
+  top: 0;
+  left: 0px;
+  width: 1px;
+  height: 0%;
+  background: cyan;
+  animation: load .5s ease-in-out infinite;
 }
 
-.song.pending {
-  background: url('http://i612.photobucket.com/albums/tt207/featherliteness/Stuff/gifRainbowSpiral.gif') no-repeat center center;
+@keyframes load {
+  0%{
+    bottom: 100%;
+  }
+  50%{
+    height: 100%;
+    top: 0%;
+  }
+  100%{
+    top: 100%;
+    bottom: 0%;
+  }
+}
+.song.pending:after {
+  bottom: 0px;
+  left: 0px;
+  height: 1px;
+  width: 0%;
+  background: cyan;
+  animation: loadh .5s ease-in-out infinite;
+  animation-delay: .25s;
+}
+
+@keyframes loadh {
+  0%{
+    right: 100%;
+  }
+  50%{
+    width: 100%;
+    left: 0%;
+  }
+  100%{
+    left: 100%;
+    right: 0%;
+  }
 }
 
 .song.pending,
@@ -147,26 +204,13 @@ input::-webkit-input-placeholder {
 }
 
 .song.active,
-.song.active span {
-  font-family: monospace;
-}
-
-.song.active:not(.pending) span {
-  color: cyan;
-}
-
-.song.active,
 #toggle-0:checked ~ .song-list #song-0,
 #toggle-1:checked ~ .song-list #song-1,
-#toggle-2:checked ~ .song-list #song-2,
-#toggle-3:checked ~ .song-list #song-3,
-#toggle-4:checked ~ .song-list #song-4,
-#toggle-5:checked ~ .song-list #song-5 {
-  opacity: 1;
+#toggle-2:checked ~ .song-list #song-2{
+  color: #fff;
   pointer-events: auto;
-  transform: translateX(0%) translateZ(1px);
   /* fadein */
-  transition: all 0.4s;
+  transition: all 0.32s;
 }
 
 .song p {
@@ -176,37 +220,8 @@ input::-webkit-input-placeholder {
 .toggle {
   animation: fadeIn 0.3s ease-in-out;
   animation-fill-mode: forwards;
-  animation-delay: 1s;
-opacity: 0
-}
-
-.toggle:nth-child(1) {
- animation-delay: 0.1s;
-}
-.toggle:nth-child(2) {
- animation-delay: 0.2s;
-}
-.toggle:nth-child(3) {
- animation-delay: 0.3s;
-}
-.toggle:nth-child(4) {
- animation-delay: 0.4s;
-}
-
-.toggle:nth-child(5) {
- animation-delay: 0.5s;
-}
-.toggle:nth-child(6) {
- animation-delay: 0.6s;
-}
-.toggle:nth-child(7) {
- animation-delay: 0.7s;
-}
-.toggle:nth-child(8) {
- animation-delay: 0.8s;
-}
-.toggle:nth-child(9) {
- animation-delay: 0.9s;
+  animation-delay: 0.3s;
+  opacity: 0;
 }
 @keyframes fadeIn {
   0%{
