@@ -69,7 +69,7 @@ input::-webkit-input-placeholder {
 }
 
 .nav {
-  flex: 1 1 20%;
+  flex: 1 1 28em;
   position: relative;
   overflow: hidden;
   border-right: 1px dotted rgba(255,255,255,0.1);
@@ -142,9 +142,6 @@ input::-webkit-input-placeholder {
 }
 .song.active span {
   color: cyan;
-}
-.song.pending {
-  background: url('http://i612.photobucket.com/albums/tt207/featherliteness/Stuff/gifRainbowSpiral.gif') no-repeat center;
 }
 .song:before, .song:after {
   content: '';

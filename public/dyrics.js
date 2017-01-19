@@ -21,22 +21,22 @@
     node.addEventListener('click', function() {
       songUg.classList.remove('active');
 
-      if (!document.getElementById('song-' + node.getAttribute('for').split('-').pop())) {
-        songUg.classList.remove('active');
-        songUg.classList.add('pending');
 
-        // There's no local chords, let's fetch some on UG
-        fetch('/api.html?q=' + this.getAttribute('data-clue').replace(/'/g, ''))
-          .then(function(response) {
-            return response.text();
-          })
-          .then(function(text) {
-            songUg.innerHTML = text;
-            songUg.classList.remove('pending');
-            songUg.classList.add('active');
-          })
-          .catch(console.error);
-      }
+      songUg.classList.remove('active');
+      songUg.classList.add('pending');
+
+      // There's no local chords, let's fetch some on UG
+      fetch('/api.html?q=' + this.getAttribute('data-clue').replace(/'/g, ''))
+        .then(function(response) {
+          return response.text();
+        })
+        .then(function(text) {
+          songUg.innerHTML = text;
+          songUg.classList.remove('pending');
+          songUg.classList.add('active');
+        })
+        .catch(console.error);
+
     });
   });
 })();
