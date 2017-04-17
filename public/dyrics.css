@@ -156,8 +156,12 @@ input[data-nav="true"]:not(:checked) ~ .song-list {
   justify-content: space-between;
   align-items: center;
   flex-direction: row-reverse;
-  padding: .5em 1.5em;
-  cursor: pointer
+  padding: 0 1.5rem;
+  height: 2.4em;
+  cursor: pointer;
+  opacity: 1;
+  overflow: hidden;
+  transition: height 0.15s, opacity 0.05s;
 }
 .toggle:hover{
   color: #fff;
@@ -244,7 +248,7 @@ input[data-column="true"]{
     height: 1em;
   }
   input[data-column="true"]:checked ~ .song:not(#song-0) {
-    -webkit-columns: 2;
+    -webkit-columns: 1;
   }
 
 
@@ -325,11 +329,6 @@ input[data-column="true"]{
   /* fadein */
   transition: all 0.32s;
 }
-
-.song p {
-  -webkit-columns: 2;
-}
-
 .toggle {
   animation: fadeIn 0.3s ease-in-out;
   animation-fill-mode: forwards;
@@ -344,5 +343,26 @@ input[data-column="true"]{
   100%{
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@media (min-width: 42em) {
+  input[data-column="true"]:checked ~ .song:not(#song-0) {
+    -webkit-columns: 1;
+  }
+}
+@media (min-width: 105em) {
+  input[data-column="true"]:checked ~ .song:not(#song-0) {
+    -webkit-columns: 2;
+  }
+}
+@media (min-width: 135em) {
+  input[data-column="true"]:checked ~ .song:not(#song-0) {
+    -webkit-columns: 3;
+  }
+}
+@media (min-width: 170em) {
+  input[data-column="true"]:checked ~ .song:not(#song-0) {
+    -webkit-columns: 4;
   }
 }

@@ -8,7 +8,7 @@
 
   function refreshSongList () {
     if (this.value.length > 0) {
-      searchStyle.innerHTML = "label:not([data-clue*='"+this.value +"']){display: none}";
+      searchStyle.innerHTML = "label:not([data-clue*='"+this.value +"']){height:0;opacity:0;transform:translateX(-100%)}";
     } else {
       searchStyle.innerHTML= '';
     }
