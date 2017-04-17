@@ -197,16 +197,19 @@ input[data-nav="true"] {
 
 [data-chords="true"] {
   top: 1.5em;
-  right: 4em; }
+  right: 4em;
+  color: #151023;
+  background: cyan; }
   [data-chords="true"]:hover {
     opacity: 1; }
   [data-chords="true"]:before {
     content: "♪"; }
-  [data-chords="true"]:checked {
-    color: #000;
-    background: cyan; }
-    [data-chords="true"]:checked ~ .song span {
-      display: initial; }
+  [data-chords="true"]:not(:checked) {
+    color: cyan;
+    background: #151023; }
+    [data-chords="true"]:not(:checked) ~ .song span {
+      transform: scale(0.5);
+      opacity: 0; }
 
 [data-column="true"] {
   height: 1.4em;
@@ -244,9 +247,9 @@ input[data-nav="true"] {
     z-index: 1;
     background: cyan; }
   .song span {
-    display: none;
+    display: inline-block;
     font-family: inherit;
-    transition: inherit; }
+    transition: all 0.12s; }
   .song.active span {
     color: cyan;
     font-weight: 500;

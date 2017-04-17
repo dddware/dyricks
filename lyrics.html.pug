@@ -33,16 +33,16 @@ body
 
     section.song-list
       // Column Display Toggler
-      input.action-input( type="checkbox" data-column="true" checked="" name="display")
+      input.action-input( type="checkbox" data-column="true" checked="" name="display" title="Toggle display direction")
       // Chords Display Toggler
-      input.action-input( type="checkbox" data-chords="true" checked="" name="display")
+      input.action-input( type="checkbox" data-chords="true" checked="" name="display" title="Toggle Chords")
 
       article.song#song-ug
       article.song#song-0
         h1 Hello
         h2 Features
         ul
-          li Toggable display between column and row (default: column)
-          li Toggable chords in tabs (default: displayed)
-          li Toggable menu (default: displayed) with searchbar and a list of predefined tabs
+          li Toggable display between column and row (<span>default: column</span>)
+          li Toggable chords in tabs (<span>default: displayed</span>)
+          li Toggable menu with searchbar and a list of predefined tabs (<span>default: displayed</span>)
 script(src="dyrics.js")
