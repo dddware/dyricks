@@ -17,18 +17,17 @@ body
         input(type="radio" id=forName name="toggle")
     nav.nav
       style(id="searchStyle")
-      input(type="text" id="searchbar" placeholder="Search")
+      input(type="text" id="searchbar" placeholder="Filter by Song or Artist ... ")
 
       .label-list
-
-        label.toggle(for="toggle-0") ×
-
         each song, i in songs
           - if (song.active)
             - var forName = "toggle-" + (i+1)
             label.toggle(data-clue=song.title.toLowerCase() for=forName)
               div.artist= song.title.split(' - ').shift() 
               div.songName= song.title.split(' - ').pop()
+
+        label.toggle(for="toggle-0") ×
 
     section.song-list
       // Column Display Toggler

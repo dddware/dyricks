@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,600|Roboto+Condensed|Roboto+Mono');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,600|Roboto+Mono');
 
 *, *:before, *:after {
   box-sizing: border-box;
@@ -7,7 +7,7 @@ body {
   background: #151023;
   margin: 0;
   padding: 0;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.4;
   font-family: 'Roboto', 'Helvetica', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -16,14 +16,17 @@ body {
 [type="radio"], #searchStyle {
   display: none;
 }
-
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: cyan
+}
 #searchbar {
   position: absolute;
   z-index: 1;
   top: 0;
   width: 100%;
   padding: 1.5em;
-  padding-left: 4.5em;
+  /*padding-left: 4.5em;*/
   font-size: 1rem;
   font-weight: 300;
   font-family: 'Roboto', 'Helvetica', sans-serif;
@@ -34,22 +37,12 @@ body {
   transition: all 0.2s ease-in-out;
 }
 input::-webkit-input-placeholder {
-  color: rgba(255,255,255, 0.7);
+  color: rgba(255,255,255, 0.3);
 }
 #searchbar:focus {
   outline: none;
   color: cyan;
-  box-shadow:  0 0px 15px 10px #151023,  inset -4px 0 0 cyan;
-}
-
-#toggle-0:checked ~ .nav [for="toggle-0"],
-#toggle-1:checked ~ .nav [for="toggle-1"],
-#toggle-2:checked ~ .nav [for="toggle-2"],
-#toggle-3:checked ~ .nav [for="toggle-3"],
-#toggle-4:checked ~ .nav [for="toggle-4"],
-#toggle-5:checked ~ .nav [for="toggle-5"] {
-  color: #fff;
-  background: rgba(255,255,255,.1);
+  box-shadow:  0 0px 15px 10px #151023,  inset -2px 0 0 cyan;
 }
 
 *:focus {
@@ -64,17 +57,33 @@ input::-webkit-input-placeholder {
   margin: 0;
 }
 
+.label-list {
+  height: 100vh;
+  padding: 5em 0;
+  overflow: auto;
+}
 .nav {
   flex: 1 0 26em;
   position: relative;
+  z-index: 1;
   overflow: hidden;
   border-right: 1px dotted rgba(255,255,255,0.1);
-  box-shadow: 0 0 15px rgba(0,0,0,0.25);
+  box-shadow: 0 0 15px 10px #151023;
   color: rgba(255,255,255, 0.5);
-  font-family: "Roboto Condensed";
-  transition: all 0.25s;
+  transition: transform 0.25s ease-in-out;
   transform: translateZ(1px);
 }
+
+
+.song-list {
+  flex: 1 1 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background: rgba(0,0,0,.1);
+  white-space: pre-line;
+}
+
 input[data-nav="true"]{
   right: auto;
   position: fixed;
@@ -88,23 +97,33 @@ input[data-nav="true"]{
   text-align: center;
   border: 0;
   background: linear-gradient(0deg,
-    cyan 0% ,     cyan 20% ,
-    transparent 20.001% , transparent 40% ,
-    cyan 40.001%, cyan 60%,
-    transparent 60.001% , transparent 80% ,
-    cyan 80.001%, cyan 100%
+    cyan 0% ,     cyan 15% ,
+    transparent 15.001% , transparent 43.5% ,
+    cyan 43.501%, cyan 57.5%,
+    transparent 57.501% , transparent 85% ,
+    cyan 85.001%, cyan 100%
     )
+}
+input[data-nav="true"]:checked {
+  background: none;
+  transform: translateX(20em);
+}
+input[data-nav="true"]:checked:before{
+  content: '×';
+  font-size: 2em;
+  line-height: 0;
 }
 
 input[data-nav="true"]:focus {
   outline: none;
 }
 input[data-nav="true"]:not(:checked) ~ .nav {
-  transform: translateX(-100%);
-  flex: 0;
+  transform: translateX(-100%) translateZ(1px);
+  flex: 1 1 0%;
 }
 input[data-nav="true"]:not(:checked) ~ .song-list {
   flex: 1 1 100%;
+  margin-left: 0;
 }
 
 .nav:before,
@@ -130,11 +149,6 @@ input[data-nav="true"]:not(:checked) ~ .song-list {
   transform: translate3d(-35px, 22px,0)  rotate(45deg);
 }
 
-.label-list {
-  height: 100vh;
-  padding: 5em 0;
-  overflow: auto;
-}
 
 .toggle {
   display: flex;
@@ -145,9 +159,13 @@ input[data-nav="true"]:not(:checked) ~ .song-list {
   padding: .5em 1.5em;
   cursor: pointer
 }
-
-.toggle:hover {
+.toggle:hover{
   color: #fff;
+  background: rgba(255,255,255,.1);
+}
+.toggle:active{
+  color: cyan;
+  background: rgba(255,255,255,.1);
 }
 
 .artist {
@@ -157,15 +175,6 @@ input[data-nav="true"]:not(:checked) ~ .song-list {
   text-transform: uppercase;
 }
 
-
-.song-list {
-  flex: 1 1 80%;
-  height: 100vh;
-  overflow: hidden;
-  position: relative;
-  background: rgba(0,0,0,.1);
-  white-space: pre-line;
-}
 
 .song {
   position: absolute;
