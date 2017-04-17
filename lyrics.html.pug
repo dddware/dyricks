@@ -17,15 +17,18 @@ body
 
       .label-list
 
-        label.toggle(for="toggle-0") HOME
+        label.toggle(for="toggle-0") ✖
 
         each song, i in songs
           - if (song.active)
             - var forName = "toggle-" + (i+1)
-            label.toggle(data-clue=song.title for=forName)
-              = song.title
+            label.toggle(data-clue=song.title.toLowerCase() for=forName)
+              div.artist= song.title.split(' - ').shift() 
+              div.songName= song.title.split(' - ').pop()
 
     section.song-list
+      input.action-input( type="checkbox" data-column="true" checked="" name="display")
+      input.action-input( type="checkbox" data-chords="true" checked="" name="display")
       article.song#song-ug
       article.song#song-0
         h1 Yop

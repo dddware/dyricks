@@ -12,7 +12,7 @@ var Promise = require('promise'),
     searchUrl = function (song) {
         var url =
             'https://www.ultimate-guitar.com/search.php?type=300&title='
-            + encodeUrl(song).split('-').pop().toLowerCase();
+            + encodeUrl(song).split(' - ').pop().toLowerCase();
         console.log(url);
         return url;
     },
