@@ -9,6 +9,14 @@ npm install
 npm start
 ```
 
+## Build CSS
+
+> Need SASS installed with `gem install sass`
+
+```
+npm run build_css
+```
+
 ## Usage
 
 ### API

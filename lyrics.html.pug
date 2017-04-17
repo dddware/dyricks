@@ -3,7 +3,7 @@ html(lang="en")
 head
   meta(charset="UTF-8")
   title(Dyrics)
-  link(rel="stylesheet" href="dyrics.css")
+  link(rel="stylesheet" href="stylesheets/dyrics.css")
 body
   .content
     // Navigation
@@ -27,7 +27,9 @@ body
               div.artist= song.title.split(' - ').shift() 
               div.songName= song.title.split(' - ').pop()
 
-        label.toggle(for="toggle-0") ×
+        label.toggle(for="toggle-0")
+          div.artist ★
+          div.songName ★
 
     section.song-list
       // Column Display Toggler

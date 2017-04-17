@@ -1,0 +1,63 @@
+// × sign to toggle the nav
+input[data-nav="true"]
+  position: fixed
+  right: auto
+  top: 1.5em
+  left: 1.5em
+  width: 1.5em
+  height: 1em
+  z-index: 2
+  transform: translateX(-50%) translateY(-50%) translateZ(1px)
+  color: $primary-color
+  text-align: center
+  border: 0
+  background: linear-gradient(0deg, $primary-color 0%, $primary-color 15%, transparent 15.001%, transparent 43.5%, $primary-color 43.501%, $primary-color 57.5%, transparent 57.501%, transparent 85%, $primary-color 85.001%, $primary-color 100%)
+  &:checked
+    background: none
+    transform: translateX(20em)
+    &:before
+      content: '×'
+      font-size: 2em
+      line-height: 0
+  &:focus
+    outline: none
+  &:not(:checked) ~
+    .nav
+      transform: translateX(-100%) translateZ(1px)
+      flex: 1 1 0%
+    .song-list
+      flex: 1 1 100%
+      margin-left: 0
+
+.label-list
+  height: 100vh
+  padding: 5em 0
+  overflow: auto
+
+.toggle
+  display: flex
+  flex-flow: row wrap
+  justify-content: space-between
+  align-items: center
+  flex-direction: row-reverse
+  padding: 0 1.5rem
+  height: 2.4em
+  cursor: pointer
+  overflow: hidden
+  animation: fadeIn 0.3s ease-in-out
+  animation-fill-mode: forwards
+  animation-delay: 0.3s
+  opacity: 0
+  transition: height 0.15s, opacity 0.05s
+  &:hover
+    color: #fff
+    background: rgba(255, 255, 255, 0.1)
+  &:active
+    color: $primary-color
+    background: rgba(255, 255, 255, 0.1)
+
+.artist
+  font-size: 0.75em
+  font-weight: 600
+  font-family: 'Roboto', 'Helvetica', sans-serif
+  text-transform: uppercase
