@@ -9,7 +9,13 @@ var Promise = require('promise'),
     parseChordsList = require('./src/parseChordsList'),
     reduceToBestChords = require('./src/reduceToBestChords'),
     songs = require('./songs'),
-
+    searchUrl = function (song) {
+        var url =
+            'https://www.ultimate-guitar.com/search.php?type=300&title='
+            + encodeUrl(song).split('-').pop().toLowerCase();
+        console.log(url);
+        return url;
+    },
     app = express();
 
 app.use(express.static('public'));
@@ -23,7 +29,7 @@ app.get('/api(\.html)?', function(req, res) {
 
     res.append('Content-Type', 'text/' + toHtml ? 'html' : 'plain');
 
-    rp('https://www.ultimate-guitar.com/search.php?type=300&title=' + encodeUrl(req.query.q))
+    rp(searchUrl(req.query.q))
         .then(parseChordsList)
         .then(reduceToBestChords)
         .then(rp)

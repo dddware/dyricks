@@ -25,7 +25,7 @@
         "active": false
     },{
         "title": "Bad Religion - Sinister Rouge",
-        "active": true
+        "active": false
     },{
         "title": "Bad Religion - Los Angeles is burning",
         "active": true
@@ -39,11 +39,11 @@
         "title": "Renaud - Dès que le vent soufflera",
         "active": true
     },{
-        "title": "Andréas & Nicolas - Jour de marché",
+        "title": "Andréas et Nicolas - Je déteste le sexe",
         "active": true
     },{
         "title": "Mute - Bates Motel",
-        "active": true
+        "active": false
     },{
         "title": "Francis Cabrel - La Corrida",
         "active": true
@@ -74,5 +74,21 @@
     },{
         "title": "Rhapsody - Emerald Sword",
         "active": true
+    },{
+        "title": "simon and garfunkel - Sound of silence",
+        "active": true
+    },{
+        "title": "Nofx - thirteen stiches",
+        "active": true
+    },{
+        "title": "Nofx - creeping out sarah",
+        "active": true
+    },{
+        "title": "Nofx - seeing double at the triple rock",
+        "active": true
+    },{
+        "title": "Nofx - i'm an alcoholic",
+        "active": true
     }
 ]
+
