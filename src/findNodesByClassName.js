@@ -12,7 +12,8 @@ var findAttributeValue = require('./findAttributeValue'),
         var results = [];
 
         Array.prototype.slice.call(node.childNodes, 0).forEach(function(childNode) {
-            if (findAttributeValue(childNode, 'class') === className) {
+
+            if (findAttributeValue(childNode, 'class').trim() === className) {
                 results.push(childNode);
             }
 
