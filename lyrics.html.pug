@@ -6,6 +6,10 @@ head
   link(rel="stylesheet" href="dyrics.css")
 body
   .content
+    // Navigation
+    input.action-input(type="checkbox" data-nav="true" checked="checked" )
+
+    // Song Selection
     input(type="radio" id="toggle-0" name="toggle" checked="checked")
     each song, i in songs
       - if (song.active)
@@ -17,7 +21,7 @@ body
 
       .label-list
 
-        label.toggle(for="toggle-0") ✖
+        label.toggle(for="toggle-0") ×
 
         each song, i in songs
           - if (song.active)
@@ -27,9 +31,17 @@ body
               div.songName= song.title.split(' - ').pop()
 
     section.song-list
+      // Column Display Toggler
       input.action-input( type="checkbox" data-column="true" checked="" name="display")
+      // Chords Display Toggler
       input.action-input( type="checkbox" data-chords="true" checked="" name="display")
+
       article.song#song-ug
       article.song#song-0
-        h1 Yop
+        h1 Hello
+        h2 Features
+        ul
+          li Toggable display between column and row (default: column)
+          li Toggable chords in tabs (default: displayed)
+          li Toggable menu (default: displayed) with searchbar and a list of predefined tabs
 script(src="dyrics.js")

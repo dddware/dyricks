@@ -12,18 +12,16 @@
     } else {
       searchStyle.innerHTML= '';
     }
-
   }
 
   searchbar.addEventListener('keyup', refreshSongList);
 
-  Array.prototype.slice.call(document.querySelectorAll('label'), 0).forEach(function(node) {
+  Array.prototype.slice.call(document.querySelectorAll('.toggle'), 0).forEach(function(node) {
     node.addEventListener('click', function() {
       songUg.classList.remove('active');
-
-
-      songUg.classList.remove('active');
-      songUg.classList.add('pending');
+      if (this.getAttribute('data-clue')) {
+        songUg.classList.add('pending');
+      }
 
       // There's no local chords, let's fetch some on UG
       fetch('/api.html?q=' + this.getAttribute('data-clue').replace(/'/g, ''))
