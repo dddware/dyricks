@@ -1,18 +1,19 @@
 body
-  background: $dark
   margin: 0
   padding: 0
   font-weight: 400
   line-height: 1.4
-  font-family: $font
+  filter: invert(1)
   -webkit-font-smoothing: antialiased
 
 .content
   display: flex
   align-items: stretch
   justify-content: flex-start
-  color: #ddd
   margin: 0
+  background: $dark
+  font-family: $font
+  color: rgba(#fff,0.9)
 
 .nav
   flex: 1 0 26em
@@ -21,9 +22,10 @@ body
   overflow: hidden
   border-right: 1px dotted rgba(255, 255, 255, 0.1)
   box-shadow: 0 0 15px 10px $dark
-  color: rgba(255, 255, 255, 0.5)
-  transition: transform 0.25s ease-in-out
-  transform: translateZ(1px)
+  animation-delay: 0.3s
+  perspective-origin right center
+  transform-origin right center
+  animation fallIn 0.35s ease-in
 
 .song-list
   flex: 1 1 100%

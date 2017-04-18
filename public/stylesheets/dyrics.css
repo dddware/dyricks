@@ -1,4 +1,44 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,600|Roboto+Mono");
+@-moz-keyframes fallIn {
+  0% {
+    opacity: 0;
+    transform: perspective(600px) rotateY(-10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(600px) rotateY(0);
+  }
+}
+@-webkit-keyframes fallIn {
+  0% {
+    opacity: 0;
+    transform: perspective(600px) rotateY(-10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(600px) rotateY(0);
+  }
+}
+@-o-keyframes fallIn {
+  0% {
+    opacity: 0;
+    transform: perspective(600px) rotateY(-10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(600px) rotateY(0);
+  }
+}
+@keyframes fallIn {
+  0% {
+    opacity: 0;
+    transform: perspective(600px) rotateY(-10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(600px) rotateY(0);
+  }
+}
 @-moz-keyframes load {
   0% {
     bottom: 100%;
@@ -144,20 +184,21 @@
   }
 }
 body {
-  background: #151023;
   margin: 0;
   padding: 0;
   font-weight: 400;
   line-height: 1.4;
-  font-family: 'Roboto', 'Helvetica', sans-serif;
+  filter: invert(1);
   -webkit-font-smoothing: antialiased;
 }
 .content {
   display: flex;
   align-items: stretch;
   justify-content: flex-start;
-  color: #ddd;
   margin: 0;
+  background: #151023;
+  font-family: 'Roboto', 'Helvetica', sans-serif;
+  color: rgba(255,255,255,0.9);
 }
 .nav {
   flex: 1 0 26em;
@@ -166,9 +207,10 @@ body {
   overflow: hidden;
   border-right: 1px dotted rgba(255,255,255,0.1);
   box-shadow: 0 0 15px 10px #151023;
-  color: rgba(255,255,255,0.5);
-  transition: transform 0.25s ease-in-out;
-  transform: translateZ(1px);
+  animation-delay: 0.3s;
+  perspective-origin: right center;
+  transform-origin: right center;
+  animation: fallIn 0.35s ease-in;
 }
 .song-list {
   flex: 1 1 100%;
@@ -192,7 +234,7 @@ body {
   display: none;
 }
 input::-webkit-input-placeholder {
-  color: rgba(255,255,255,0.3);
+  color: #888;
 }
 #searchbar {
   position: absolute;
@@ -205,7 +247,6 @@ input::-webkit-input-placeholder {
   font-weight: 300;
   font-family: 'Roboto', 'Helvetica', sans-serif;
   background: #151023;
-  color: rgba(255,255,255,0.7);
   border: 0;
   box-shadow: 0 0px 15px 10px #151023;
   transition: all 0.2s ease-in-out;
@@ -241,7 +282,7 @@ input[data-nav="true"] {
   right: auto;
   top: 1.5em;
   left: 1.5em;
-  width: 1.5em;
+  width: 1em;
   height: 1em;
   z-index: 2;
   transform: translateX(-50%) translateY(-50%) translateZ(1px);
@@ -256,7 +297,7 @@ input[data-nav="true"]:checked {
 }
 input[data-nav="true"]:checked:before {
   content: '×';
-  font-size: 2em;
+  font-size: 2.25em;
   line-height: 0;
 }
 input[data-nav="true"]:focus {
@@ -285,19 +326,18 @@ input[data-nav="true"]:not(:checked) ~ .song-list {
   height: 2.4em;
   cursor: pointer;
   overflow: hidden;
-  animation: fadeIn 0.3s ease-in-out;
-  animation-fill-mode: forwards;
-  animation-delay: 0.3s;
-  opacity: 0;
-  transition: height 0.15s, opacity 0.05s;
+  opacity: 0.7;
+  transition: all 0.02s ease-in-out;
 }
 .toggle:hover {
-  color: #fff;
+  opacity: 1;
   background: rgba(255,255,255,0.1);
+  transition: all 0.12s ease-in-out;
 }
 .toggle:active {
   color: #0ff;
-  background: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.2);
+  transition: all 0s ease-in-out;
 }
 .artist {
   font-size: 0.75em;
@@ -321,7 +361,7 @@ input[data-nav="true"]:not(:checked) ~ .song-list {
   z-index: 1;
   text-align: center;
   font-weight: 300;
-  opacity: 0.3;
+  opacity: 0.5;
   transform: translateX(50%) translateY(-50%) translateZ(1px);
   transition: all 0.2s;
 }
@@ -383,7 +423,6 @@ input[data-nav="true"]:not(:checked) ~ .song-list {
   overflow: auto;
   font-size: 18px;
   font-family: "Roboto Mono", "Source Code Pro", monospace;
-  color: transparent;
   line-height: 1.618;
   white-space: pre-wrap;
   background-position: center;
@@ -398,15 +437,16 @@ input[data-nav="true"]:not(:checked) ~ .song-list {
   z-index: 1;
   background: #0ff;
 }
+.song.active {
+  transition: all 0.32s;
+}
 .song span {
   display: inline-block;
   font-family: inherit;
-  transition: all 0.12s;
-}
-.song.active span {
   color: #0ff;
   font-weight: 500;
   font-size: 0.875em;
+  transition: all 0.24s;
 }
 .song.pending {
   color: transparent;
@@ -429,10 +469,9 @@ input[data-nav="true"]:not(:checked) ~ .song-list {
   animation: loadh 0.5s ease-in-out infinite;
   animation-delay: 0.25s;
 }
-.song.active {
-  color: #fff;
-  pointer-events: auto;
-  transition: all 0.32s;
+.song.active + .song,
+.song.pending + .song {
+  opacity: 0;
 }
 #toggle-0:checked ~ .song-list #song-0 {
   color: inherit;

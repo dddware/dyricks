@@ -8,7 +8,6 @@
   overflow: auto
   font-size: 18px
   font-family: $mono
-  color: transparent
   line-height: 1.618
   white-space: pre-wrap
   background-position: center
@@ -20,14 +19,15 @@
     position: absolute
     z-index: 1
     background: $primary-color
+  &.active
+    transition: all 0.32s
   span
     display: inline-block
     font-family: inherit
-    transition: all 0.12s
-  &.active span
     color: $primary-color
     font-weight: 500
     font-size: 0.875em
+    transition: all 0.24s
   &.pending
     color: transparent
     span
@@ -45,10 +45,9 @@
       width: 0%
       animation: loadh .5s ease-in-out infinite
       animation-delay: .25s
-  &.active
-    color: #fff
-    pointer-events: auto
-    transition: all 0.32s
+  &.active, &.pending
+    & + .song
+      opacity: 0
 
 #toggle-0:checked ~ .song-list #song-0
   color: inherit

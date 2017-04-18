@@ -4,7 +4,7 @@ input[data-nav="true"]
   right: auto
   top: 1.5em
   left: 1.5em
-  width: 1.5em
+  width: 1em
   height: 1em
   z-index: 2
   transform: translateX(-50%) translateY(-50%) translateZ(1px)
@@ -17,7 +17,7 @@ input[data-nav="true"]
     transform: translateX(20em)
     &:before
       content: '×'
-      font-size: 2em
+      font-size: 2.25em
       line-height: 0
   &:focus
     outline: none
@@ -44,17 +44,16 @@ input[data-nav="true"]
   height: 2.4em
   cursor: pointer
   overflow: hidden
-  animation: fadeIn 0.3s ease-in-out
-  animation-fill-mode: forwards
-  animation-delay: 0.3s
-  opacity: 0
-  transition: height 0.15s, opacity 0.05s
+  opacity: 0.7
+  transition: all .02s ease-in-out
   &:hover
-    color: #fff
+    opacity: 1
     background: rgba(255, 255, 255, 0.1)
+    transition: all .12s ease-in-out
   &:active
     color: $primary-color
-    background: rgba(255, 255, 255, 0.1)
+    background: rgba(255, 255, 255, 0.2)
+    transition: all .0s ease-in-out
 
 .artist
   font-size: 0.75em
