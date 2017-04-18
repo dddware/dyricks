@@ -6,10 +6,11 @@
     "promise": "^7.1.1",
     "pug": "^2.0.0-beta6",
     "request": "^2.79.0",
-    "request-promise": "^4.1.1"
+    "request-promise": "^4.1.1",
+    "stylus": "^0.54.5"
   },
   "scripts": {
     "start": "npm run build_css & node server.js",
-    "build_css": "sass --watch public/stylesheets/style.sass:public/stylesheets/dyrics.css"
+    "build_css": "stylus --watch public/stylesheets/style.styl -o public/stylesheets/dyrics.css"
   }
 }

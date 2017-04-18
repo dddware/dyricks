@@ -1,5 +1,7 @@
 .action-input
   -webkit-appearance: none
+  -moz-appearance: none
+  appearance: none
   border: 1px solid $primary-color
   font-size: 1.25em
   cursor: pointer
@@ -32,6 +34,8 @@
   &:not(:checked)
     color: $primary-color
     background: $dark
+    .song
+      white-space: pre-line
     ~ .song span
       transform: scale(0.5)
       opacity: 0
@@ -48,3 +52,5 @@
     height: 1em
     ~ .song:not(#song-0)
       -webkit-columns: 1
+      -moz-columns: 1
+      columns: 1
