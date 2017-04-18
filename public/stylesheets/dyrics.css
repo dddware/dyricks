@@ -188,7 +188,6 @@ body {
   padding: 0;
   font-weight: 400;
   line-height: 1.4;
-  filter: invert(1);
   -webkit-font-smoothing: antialiased;
 }
 .content {
@@ -427,7 +426,6 @@ input[data-nav="true"]:not(:checked) ~ .song-list {
   white-space: pre-wrap;
   background-position: center;
   transform-origin: left center;
-  pointer-events: none;
   transition: all 0.16s;
 }
 .song:before,
@@ -438,6 +436,7 @@ input[data-nav="true"]:not(:checked) ~ .song-list {
   background: #0ff;
 }
 .song.active {
+  pointer-events: auto;
   transition: all 0.32s;
 }
 .song span {
@@ -472,6 +471,7 @@ input[data-nav="true"]:not(:checked) ~ .song-list {
 .song.active + .song,
 .song.pending + .song {
   opacity: 0;
+  pointer-events: none;
 }
 #toggle-0:checked ~ .song-list #song-0 {
   color: inherit;

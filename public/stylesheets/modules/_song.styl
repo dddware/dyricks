@@ -12,7 +12,6 @@
   white-space: pre-wrap
   background-position: center
   transform-origin: left center
-  pointer-events: none
   transition: all 0.16s
   &:before, &:after
     content: ''
@@ -20,6 +19,7 @@
     z-index: 1
     background: $primary-color
   &.active
+    pointer-events: auto
     transition: all 0.32s
   span
     display: inline-block
@@ -48,6 +48,7 @@
   &.active, &.pending
     & + .song
       opacity: 0
+      pointer-events: none
 
 #toggle-0:checked ~ .song-list #song-0
   color: inherit
