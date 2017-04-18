@@ -9,7 +9,7 @@
     "request-promise": "^4.1.1"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "npm run build_css & node server.js",
     "build_css": "sass --watch public/stylesheets/style.sass:public/stylesheets/dyrics.css"
   }
 }
