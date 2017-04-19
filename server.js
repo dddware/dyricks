@@ -1,35 +1,33 @@
 'use strict';
 
 var Promise = require('promise'),
-    encodeUrl = require('encodeurl'),
     express = require('express'),
     pug = require('pug'),
     rp = require('request-promise'),
+    formatListForVue = require('./src/formatListForVue'),
+    getSearchUrl = require('./src/getSearchUrl'),
     parseChordsContent = require('./src/parseChordsContent'),
     parseChordsList = require('./src/parseChordsList'),
     reduceToBestChords = require('./src/reduceToBestChords'),
     songs = require('./songs'),
-    searchUrl = function (song) {
-        var url =
-            'https://www.ultimate-guitar.com/search.php?type=300&title='
-            + encodeUrl(song).split(' - ').pop().toLowerCase();
-        console.log(url);
-        return url;
-    },
+
     app = express();
 
+// Serves static files
 app.use(express.static('public'));
 
+// Serves HTML
 app.get('/', function(req, res) {
-    res.end(pug.renderFile('lyrics.html.pug', { songs }));
+    res.end(pug.renderFile('lyrics.html.pug', { songs: formatListForVue(songs) }));
 });
 
+// Serves API
 app.get('/api(\.html)?', function(req, res) {
     var toHtml = req.path.match(/\.html$/);
 
     res.append('Content-Type', 'text/' + toHtml ? 'html' : 'plain');
 
-    rp(searchUrl(req.query.q))
+    rp(getSearchUrl(req.query.q))
         .then(parseChordsList)
         .then(reduceToBestChords)
         .then(rp)
