@@ -5,15 +5,20 @@ Guitar-chord-augmented song lyrics on a fancy webpage
 ## Setup
 
 ```
-    npm install
-    # Serve html and watch stylus files
-    npm start
+yarn # or npm install
 ```
 
-## Build only CSS
+Then
 
 ```
-    npm run build_css
+npm run css    # compiles stylesheets and watches for changes
+npm run server # serves the app on port 3000
+```
+
+Or
+
+```
+npm start
 ```
 
 ## Usage
@@ -21,8 +26,8 @@ Guitar-chord-augmented song lyrics on a fancy webpage
 ### API
 
 ```
-    curl http://localhost:3000/api?q=bad+religion+los+angeles+is+burning
-    curl http://localhost:3000/api.html?q=bad+religion+los+angeles+is+burning # preserve original markup
+curl http://localhost:3000/api?q=bad+religion+los+angeles+is+burning
+curl http://localhost:3000/api.html?q=bad+religion+los+angeles+is+burning # preserves original markup
 ```
 
 ### Web

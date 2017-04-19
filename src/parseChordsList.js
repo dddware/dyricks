@@ -21,10 +21,11 @@ module.exports = function(html) {
         rows.forEach(function(row) {
             var cells = row.childNodes.filter(function(node) { return node.nodeName === 'td'; });
 
-            if (cells[0].attrs[0] && cells[0].attrs[0].value === "npd77"){
-                // Prevent an anti bot message haha.
+            // Prevents an anti-bot message, haha.
+            if (cells[0].attrs[0] && cells[0].attrs[0].value === 'npd77') {
                 cells.shift();
             }
+
             // This is gonna be quite a bit magical.
             if ((cells[3].childNodes.length) && (cells[3].childNodes[0].childNodes[0].value === 'chords')) {
                 var url = findAttributeValue(cells[1].childNodes[1].childNodes[1], 'href'),

@@ -10,7 +10,8 @@
     "stylus": "^0.54.5"
   },
   "scripts": {
-    "start": "npm run build_css & node server.js",
-    "build_css": "stylus --watch public/stylesheets/style.styl -o public/stylesheets/dyrics.css"
+    "css": "stylus --watch public/stylesheets/style.styl -o public/stylesheets/dyrics.css",
+    "server": "node server.js",
+    "start": "npm run css & npm run server"
   }
 }
