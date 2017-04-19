@@ -37,4 +37,13 @@
 
     });
   });
+
+  // Ambient light detection
+  window.addEventListener('devicelight', function(event) {
+    if (event.value < 50) {
+      document.querySelector('body').classList.remove('light');
+    } else {
+      document.querySelector('body').classList.add('light');
+    }
+  });
 })();
