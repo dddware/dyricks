@@ -190,6 +190,9 @@ body {
   line-height: 1.4;
   -webkit-font-smoothing: antialiased;
 }
+body.light {
+  filter: invert(1);
+}
 .content {
   display: flex;
   align-items: stretch;
