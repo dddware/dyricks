@@ -1,8 +1,10 @@
 {
   "dependencies": {
+    "autoprefixer": "^6.7.7",
     "encodeurl": "^1.0.1",
     "express": "^4.14.0",
     "parse5": "^3.0.2",
+    "postcss-cli": "^3.1.1",
     "promise": "^7.1.1",
     "pug": "^2.0.0-beta6",
     "request": "^2.79.0",
@@ -10,7 +12,9 @@
     "stylus": "^0.54.5"
   },
   "scripts": {
-    "css": "stylus --watch public/stylesheets/style.styl -o public/stylesheets/dyrics.css",
+    "autoprefixer": "postcss --use autoprefixer -o public/stylesheets/dyrics.css public/stylesheets/dyrics.css",
+    "stylus": "stylus --watch public/stylesheets/style.styl -o public/stylesheets/dyrics.css",
+    "css": "npm run stylus & npm run autoprefixer",
     "server": "node server.js",
     "start": "npm run css & npm run server"
   }
