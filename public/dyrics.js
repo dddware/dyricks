@@ -24,7 +24,7 @@
       }
 
       // There's no local chords, let's fetch some on UG
-      fetch('/api.html?q=' + this.getAttribute('data-clue').replace(/'/g, ''))
+      fetch('/ug.html?q=' + this.getAttribute('data-clue').replace(/'/g, ''))
         .then(function(response) {
           return response.text();
         })

@@ -21,8 +21,8 @@ app.get('/', function(req, res) {
     res.end(pug.renderFile('lyrics.html.pug', { songs: formatListForVue(songs) }));
 });
 
-// Serves API
-app.get('/api(\.html)?', function(req, res) {
+// UG API
+app.get('/ug(\.html)?', function(req, res) {
     var toHtml = req.path.match(/\.html$/);
 
     res.append('Content-Type', 'text/' + toHtml ? 'html' : 'plain');
