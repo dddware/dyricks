@@ -8,7 +8,7 @@ head
   link( rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32" )
   link( rel="icon" type="image/png" href="images/favicon-16x16.png" sizes="16x16" )
 
-body
+body( data-chords )
   .content
 
 
@@ -28,8 +28,9 @@ body
       label.action-label#nav-toggler( onclick="document.body.classList.toggle('nav-toggled');")
       label.action-label#columns-toggler( onclick="document.body.classList.toggle('columns-toggled');")
       label.action-label#chords-toggler( onclick="document.body.classList.toggle('chords-toggled');")
+      label.action-label#source-toggler( onclick="toggleDataChords();")
 
-      article.song#song-ug
+      article.song#song
         h1 Hello
         h2 Features
         ul
