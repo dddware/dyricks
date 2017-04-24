@@ -1,5 +1,6 @@
 .action-input
-  appearance: none
+  display: none
+.action-input + label
   border: 1px solid $primary-color
   font-size: 1.25em
   cursor: pointer
@@ -20,33 +21,70 @@
   &:active
     opacity: 1
 
-[data-chords="true"]
-  top: 1.5em
-  right: 4em
-  color: $dark
-  background: $primary-color
-  &:hover
-    opacity: 1
-  &:before
-    content: '♪'
-  &:not(:checked)
+// × sign to toggle the nav
+#nav-toggler
+  + label
+    position: fixed
+    right: auto
+    top: 1.7em
+    left: 1.5em
+    width: 1em
+    height: 1em
+    z-index: 2
+    transform: translateX(-50%) translateY(-50%) translateZ(1px)
     color: $primary-color
-    background: $dark
+    text-align: center
+    border: 0
+    background: linear-gradient(0deg, $primary-color 0%, $primary-color 15%, transparent 15.001%, transparent 43.5%, $primary-color 43.501%, $primary-color 57.5%, transparent 57.501%, transparent 85%, $primary-color 85.001%, $primary-color 100%)
+  &:checked + label
+    background: none
+    left 22.5em
+    &:before
+      content: '×'
+      font-size: 2.25em
+  &:not(:checked) ~
+    .nav
+      opacity 0
+      transform: translateX(-100%) translateZ(1px)
+      flex: 1 1 0%
+    .song-list
+      flex: 1 1 100%
+      margin-left: 0
+
+
+#chords-toggler
+  & + label
+    top: 1.5em
+    right: 4em
+    color: $dark
+    background: $primary-color
+    &:hover
+      opacity: 1
+    &:before
+      content: '♪'
+  &:not(:checked)
+    label
+      color: $primary-color
+      background: $dark
     .song
       white-space: pre-line
     ~ .song span
       transform: scale(0.5)
       opacity: 0
-[data-column="true"]
-  height: 1.4em
-  top: 1.5em
-  right: 1.5em
-  background: linear-gradient(0deg, transparent 0%, $primary-color 100%)
-  &:hover
+
+
+#column-toggler
+  & + label
+    height: 1.4em
+    top: 1.5em
+    right: 1.5em
+    background: linear-gradient(0deg, transparent 0%, $primary-color 100%)
+  &:hover +label
     opacity: 1
   &:checked
-    background: linear-gradient(90deg, $primary-color 0%, transparent 100%)
-    width: 1.6em
-    height: 1em
+    + label
+      background: linear-gradient(90deg, $primary-color 0%, transparent 100%)
+      width: 1.6em
+      height: 1em
     ~ .song:not(#song-0)
       columns: 1

@@ -7,8 +7,6 @@ head
   meta(content="width=device-width, initial-scale=1.0" name="viewport")
 body
   .content
-    // Navigation
-    input.action-input(type="checkbox" data-nav="true" checked="checked" )
 
     // Song Selection
     input(type="radio" id="toggle-0" name="toggle" checked="checked")
@@ -16,6 +14,11 @@ body
       - if (song.active)
         - var forName = "toggle-" + (i+1)
         input(type="radio" id=forName name="toggle")
+
+
+    // Navigation
+    input.action-input( id="nav-toggler" type="checkbox" data-nav="true" checked="checked" )
+    label( for="nav-toggler" )
     nav.nav
       style(id="searchStyle")
       input(type="text" id="searchbar" placeholder="Filter by Song or Artist ... ")
@@ -34,9 +37,11 @@ body
 
     section.song-list
       // Column Display Toggler
-      input.action-input( type="checkbox" data-column="true" checked="" name="display" title="Toggle display direction")
+      input.action-input( id="column-toggler" type="checkbox" data-column="true" checked="" name="display" title="Toggle display direction")
+      label( for="column-toggler" )
       // Chords Display Toggler
-      input.action-input( type="checkbox" data-chords="true" checked="" name="display" title="Toggle Chords")
+      input.action-input( id="chords-toggler" type="checkbox" data-chords="true" checked="" name="display" title="Toggle Chords")
+      label( for="chords-toggler" )
 
       article.song#song-ug
       article.song#song-0

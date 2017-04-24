@@ -1,36 +1,21 @@
-// × sign to toggle the nav
-input[data-nav="true"]
-  position: fixed
-  right: auto
-  top: 1.5em
-  left: 1.5em
-  width: 1em
-  height: 1em
-  z-index: 2
-  transform: translateX(-50%) translateY(-50%) translateZ(1px)
-  color: $primary-color
-  text-align: center
-  border: 0
-  background: linear-gradient(0deg, $primary-color 0%, $primary-color 15%, transparent 15.001%, transparent 43.5%, $primary-color 43.501%, $primary-color 57.5%, transparent 57.501%, transparent 85%, $primary-color 85.001%, $primary-color 100%)
-  &:checked
-    background: none
-    transform: translateX(20em)
-    &:before
-      content: '×'
-      font-size: 2.25em
-      line-height: 0
-  &:focus
-    outline: none
-  &:not(:checked) ~
-    .nav
-      transform: translateX(-100%) translateZ(1px)
-      flex: 1 1 0%
-    .song-list
-      flex: 1 1 100%
-      margin-left: 0
+.nav
+  flex: 1 0 26em
+  max-width: 100%
+  position: relative
+  z-index: 1
+  overflow: hidden
+  border-right: 1px dotted rgba(255, 255, 255, 0.1)
+  box-shadow: 0 0 15px 10px $dark
+  animation-delay: 0.3s
+  perspective-origin right center
+  transform-origin right center
+  transform translateZ(1px)
+  animation fallIn 0.35s ease-in
+  transition all 0.3s
 
 .label-list
   height: 100vh
+  width: 26em
   padding: 5em 0
   overflow: auto
 
