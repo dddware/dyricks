@@ -10,11 +10,12 @@
   font-family: $mono
   line-height: 1.618
   white-space: pre-wrap
+  columns: 2
   background-position: center
   transform-origin: left center
   transition: all 0.16s
-  &:not(#song-0)
-    columns: 2
+  &#song-0
+    columns: auto
   &:before, &:after
     content: ''
     position: absolute

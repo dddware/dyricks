@@ -188,6 +188,7 @@ body {
   padding: 0;
   font-weight: 400;
   line-height: 1.4;
+  background: #151023;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: filter 1s ease-in-out;
@@ -411,7 +412,7 @@ input::placeholder {
   width: 1em;
 }
 .columns-toggled .song {
-  columns: 0;
+  columns: auto;
 }
 .song {
   position: absolute;
@@ -425,12 +426,13 @@ input::placeholder {
   font-family: "Roboto Mono", "Source Code Pro", monospace;
   line-height: 1.618;
   white-space: pre-wrap;
+  columns: 2;
   background-position: center;
   transform-origin: left center;
   transition: all 0.16s;
 }
-.song:not(#song-0) {
-  columns: 2;
+.song#song-0 {
+  columns: auto;
 }
 .song:before,
 .song:after {
