@@ -445,6 +445,9 @@ body[data-chords] #source-toggler:after {
   transform-origin: left center;
   transition: all 0.16s;
 }
+.song br {
+  display: none;
+}
 .song a {
   background: rgba(255,255,255,0.01);
   text-decoration: none;
