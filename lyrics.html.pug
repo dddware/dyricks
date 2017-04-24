@@ -5,20 +5,19 @@ head
   title(Dyrics)
   link(rel="stylesheet" href="stylesheets/dyrics.css")
   meta(content="width=device-width, initial-scale=1.0" name="viewport")
+  link( rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32" )
+  link( rel="icon" type="image/png" href="images/favicon-16x16.png" sizes="16x16" )
+
 body
   .content
 
-    // Song Selection
+    //- Song Selection
     input(type="radio" id="toggle-0" name="toggle" checked="checked")
     each song, i in songs
       - if (song.active)
         - var forName = "toggle-" + (i+1)
         input(type="radio" id=forName name="toggle")
 
-
-    // Navigation
-    input.action-input( id="nav-toggler" type="checkbox" data-nav="true" checked="checked" )
-    label( for="nav-toggler" )
     nav.nav
       style(id="searchStyle")
       input(type="text" id="searchbar" placeholder="Filter by Song or Artist ... ")
@@ -36,12 +35,9 @@ body
           div.songName ★
 
     section.song-list
-      // Column Display Toggler
-      input.action-input( id="column-toggler" type="checkbox" data-column="true" checked="" name="display" title="Toggle display direction")
-      label( for="column-toggler" )
-      // Chords Display Toggler
-      input.action-input( id="chords-toggler" type="checkbox" data-chords="true" checked="" name="display" title="Toggle Chords")
-      label( for="chords-toggler" )
+      label.action-label#nav-toggler( onclick="document.body.classList.toggle('nav-toggled');")
+      label.action-label#columns-toggler( onclick="document.body.classList.toggle('columns-toggled');")
+      label.action-label#chords-toggler( onclick="document.body.classList.toggle('chords-toggled');")
 
       article.song#song-ug
       article.song#song-0

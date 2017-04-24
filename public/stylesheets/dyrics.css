@@ -319,10 +319,7 @@ input::placeholder {
   font-family: 'Roboto', 'Helvetica', sans-serif;
   text-transform: uppercase;
 }
-.action-input {
-  display: none;
-}
-.action-input + label {
+.action-label {
   border: 1px solid #0ff;
   font-size: 1.25em;
   cursor: pointer;
@@ -339,14 +336,14 @@ input::placeholder {
   transform: translateX(50%) translateY(-50%) translateZ(1px);
   transition: all 0.2s;
 }
-.action-input + label:hover {
+.action-label:hover {
   opacity: 0.8;
 }
-.action-input + label:active {
+.action-label:active {
   opacity: 1;
 }
-#nav-toggler + label {
-  position: fixed;
+#nav-toggler {
+  position: absolute;
   right: auto;
   top: 1.7em;
   left: 1.5em;
@@ -357,63 +354,62 @@ input::placeholder {
   color: #0ff;
   text-align: center;
   border: 0;
+  background: none;
+}
+#nav-toggler:before {
+  content: '×';
+  font-size: 2.15em;
+}
+.nav-toggled #nav-toggler {
   background: linear-gradient(0deg, #0ff 0%, #0ff 15%, transparent 15.001%, transparent 43.5%, #0ff 43.501%, #0ff 57.5%, transparent 57.501%, transparent 85%, #0ff 85.001%, #0ff 100%);
 }
-#nav-toggler:checked + label {
-  background: none;
-  left: 22.5em;
+.nav-toggled #nav-toggler:before {
+  opacity: 0;
 }
-#nav-toggler:checked + label:before {
-  content: '×';
-  font-size: 2.25em;
-}
-#nav-toggler:not(:checked) ~ .nav {
+.nav-toggled .nav {
   opacity: 0;
   transform: translateX(-100%) translateZ(1px);
   flex: 1 1 0%;
 }
-#nav-toggler:not(:checked) ~ .song-list {
+.nav-toggled .song-list {
   flex: 1 1 100%;
   margin-left: 0;
 }
-#chords-toggler + label {
+#chords-toggler {
   top: 1.5em;
   right: 4em;
-  color: #151023;
-  background: #0ff;
-}
-#chords-toggler + label:hover {
-  opacity: 1;
-}
-#chords-toggler + label:before {
-  content: '♪';
-}
-#chords-toggler:not(:checked) label {
   color: #0ff;
   background: #151023;
 }
-#chords-toggler:not(:checked) .song {
-  white-space: pre-line;
+#chords-toggler:hover {
+  opacity: 1;
 }
-#chords-toggler:not(:checked) ~ .song span {
+#chords-toggler:before {
+  content: '♪';
+}
+.chords-toggled #chords-toggler {
+  color: #151023;
+  background: #0ff;
+}
+.chords-toggled .song span {
   transform: scale(0.5);
   opacity: 0;
 }
-#column-toggler + label {
-  height: 1.4em;
+#columns-toggler {
   top: 1.5em;
   right: 1.5em;
-  background: linear-gradient(0deg, transparent 0%, #0ff 100%);
-}
-#column-toggler:hover +label {
-  opacity: 1;
-}
-#column-toggler:checked + label {
   background: linear-gradient(90deg, #0ff 0%, transparent 100%);
   width: 1.6em;
   height: 1em;
 }
-#column-toggler:checked ~ .song:not(#song-0) {
+#columns-toggler:hover {
+  opacity: 1;
+}
+.columns-toggled #columns-toggler {
+  background: linear-gradient(0deg, transparent 0%, #0ff 100%);
+  height: 1.4em;
+}
+.columns-toggled .song:not(#song-0) {
   columns: 1;
 }
 .song {
