@@ -4,14 +4,21 @@
   "description": "I'M ENJOYING A TREAT, DYRICKS!!",
   "main": "index.js",
   "dependencies": {
-    "node": "^0.0.0"
+    "node": "^0.0.0",
+    "encodeurl": "^1.0.1",
+    "express": "^4.14.0",
+    "parse5": "^3.0.1",
+    "promise": "^7.1.1",
+    "request": "^2.79.0",
+    "request-promise": "^4.1.1"
   },
   "devDependencies": {
     "pug": "^2.0.0-beta6",
     "watch": "^1.0.1"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "server": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -23,4 +30,5 @@
     "url": "https://github.com/dddware/dyricks/issues"
   },
   "homepage": "https://github.com/dddware/dyricks#readme"
+  }
 }
