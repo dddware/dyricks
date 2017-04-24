@@ -5,9 +5,12 @@ var Promise = require('promise'),
     pug = require('pug'),
     rp = require('request-promise'),
     formatListForVue = require('./src/formatListForVue'),
-    getSearchUrl = require('./src/getSearchUrl'),
+    getLyricsUrl = require('./src/getLyricsUrl'),
+    getUgSearchUrl = require('./src/getUgSearchUrl'),
+    getGeniusSearchUrl = require('./src/getGeniusSearchUrl'),
     parseChordsContent = require('./src/parseChordsContent'),
     parseChordsList = require('./src/parseChordsList'),
+    parseLyricsContent = require('./src/parseLyricsContent'),
     reduceToBestChords = require('./src/reduceToBestChords'),
     songs = require('./songs'),
 
@@ -27,7 +30,7 @@ app.get('/ug(\.html)?', function(req, res) {
 
     res.append('Content-Type', 'text/' + toHtml ? 'html' : 'plain');
 
-    rp(getSearchUrl(req.query.q))
+    rp(getUgSearchUrl(req.query.q))
         .then(parseChordsList)
         .then(reduceToBestChords)
         .then(rp)
@@ -40,6 +43,31 @@ app.get('/ug(\.html)?', function(req, res) {
 
             if (statusCode === 404) {
                 res.end('No chords found for "' + req.query.q + '"');
+            } else {
+                console.error(error);
+                res.end();
+            }
+        });
+});
+
+// Genius API
+app.get('/genius(\.html)?', function(req, res) {
+    var toHtml = req.path.match(/\.html$/);
+
+    res.append('Content-Type', 'text/' + toHtml ? 'html' : 'plain');
+
+    rp(getGeniusSearchUrl(req.query.q))
+        .then(getLyricsUrl)
+        .then((url) => rp(url))
+        .then(parseLyricsContent.bind(null, toHtml))
+        .then(res.end.bind(res))
+        .catch(function(error) {
+            var statusCode = error.statusCode || 500;
+
+            res.status(statusCode);
+
+            if (statusCode === 404) {
+                res.end('No lyrics found for "' + req.query.q + '"');
             } else {
                 console.error(error);
                 res.end();

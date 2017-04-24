@@ -1,6 +1,6 @@
 # dyricks
 
-Guitar-chord-augmented song lyrics on a fancy webpage
+UltimateGuitar chords and Genius lyrics on a fancy webpage
 
 ## Setup
 
@@ -26,8 +26,8 @@ npm start
 ### API
 
 ```
-curl http://localhost:3000/api?q=bad+religion+los+angeles+is+burning
-curl http://localhost:3000/api.html?q=bad+religion+los+angeles+is+burning # preserves original markup
+curl http://localhost:3000/(ug|genius)?q=bad+religion+los+angeles+is+burning
+curl http://localhost:3000/(ug|genius).html?q=bad+religion+los+angeles+is+burning # preserves original markup
 ```
 
 ### Web

@@ -11,14 +11,11 @@ var parse5 = require('parse5'),
  * @return {String}
  */
 module.exports = function(toHtml, html) {
-    var node = findNodesByClassName('js-tab-content', parse5.parse(html)).shift();
+    var node = findNodesByClassName('lyrics', parse5.parse(html)).shift();
 
     if (toHtml) {
-        return parse5.serialize(node)
-            .replace(/<(\/?span)>/g, '§$1§')
-            .replace(/<|>/g, '')
-            .replace(/§([^§]+)§/g, '<$1>');
+        return parse5.serialize(node).trim();
     }
 
-    return flattenToText(node);
+    return flattenToText(node).trim();
 };
