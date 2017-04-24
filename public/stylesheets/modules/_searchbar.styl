@@ -1,0 +1,41 @@
+input::placeholder
+  color: #888
+
+#searchbar
+  position: absolute
+  z-index: 1
+  top: 0
+  width: 100%
+  padding: 1.5em
+  padding-right: 4.5em
+  font-size: 1rem
+  font-weight: 300
+  font-family: $font
+  background: $dark
+  border: 0
+  box-shadow: 0 0px 15px 10px $dark
+  transition: all 0.2s ease-in-out
+  &:focus
+    outline: none
+    color: $primary-color
+    box-shadow: 0 0px 15px 10px $dark,  inset -2px 0 0 $primary-color
+
+// Used to display the search icon
+.nav
+  &:before, &:after
+    content: ''
+    z-index: 2
+    position: absolute
+    top: 0
+    right: 0
+    pointer-events: none
+  &:before
+    width: 12px
+    border-top: 3px solid rgba(255, 255, 255, 0.3)
+    transform: translate3d(-26px, 42px, 0) rotate(45deg)
+  &:after
+    width: 20px
+    height: 20px
+    border-radius: 50%
+    border: 2px solid rgba(255, 255, 255, 0.3)
+    transform: translate3d(-35px, 22px, 0) rotate(45deg)

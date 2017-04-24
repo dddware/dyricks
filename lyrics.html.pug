@@ -2,121 +2,49 @@ doctype html
 html(lang="en")
 head
   meta(charset="UTF-8")
-  title(Lyrics)
-  link(rel="stylesheet" href="lyrics.css")
+  title(Dyrics)
+  link(rel="stylesheet" href="stylesheets/dyrics.css")
+  meta(content="width=device-width, initial-scale=1.0" name="viewport")
+  link( rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32" )
+  link( rel="icon" type="image/png" href="images/favicon-16x16.png" sizes="16x16" )
+
 body
   .content
+
+    //- Song Selection
     input(type="radio" id="toggle-0" name="toggle" checked="checked")
-    input(type="radio" id="toggle-1" name="toggle")
-    input(type="radio" id="toggle-2" name="toggle")
+    each song, i in songs
+      - if (song.active)
+        - var forName = "toggle-" + (i+1)
+        input(type="radio" id=forName name="toggle")
+
     nav.nav
-      style(type="text/css" id="searchStyle")
-      input(type="text" id="searchbar" placeholder="Search")
+      style(id="searchStyle")
+      input(type="text" id="searchbar" placeholder="Filter by Song or Artist ... ")
 
       .label-list
-
-        label.toggle(for="toggle-0") Yo
-
         each song, i in songs
-          - var forName = "toggle-" + (i+1)
-          label.toggle(data-clue=song for=forName)
-            = song
+          - if (song.active)
+            - var forName = "toggle-" + (i+1)
+            label.toggle(data-clue=song.clue for=forName)
+              div.artist= song.artist 
+              div.songName= song.title
+
+        label.toggle(for="toggle-0")
+          div.artist ★
+          div.songName ★
 
     section.song-list
+      label.action-label#nav-toggler( onclick="document.body.classList.toggle('nav-toggled');")
+      label.action-label#columns-toggler( onclick="document.body.classList.toggle('columns-toggled');")
+      label.action-label#chords-toggler( onclick="document.body.classList.toggle('chords-toggled');")
+
+      article.song#song-ug
       article.song#song-0
-        h1 Nothing to see here
-      article.song#song-1.
-        Innocence Burned, Alive on the Stage
-        Tortured and Dumped in nameless graves
-        Centuries weighed, authority died
-        Scattering seeds of bleach and lye
-
-        Sinister Rouge
-        Coming back for more to even the score
-        Sinister Rouge
-        Coming back for more to even the score
-
-        Child molesters and Jesuits
-        Holding secret conference
-        Underneath the pontiff's nose
-        And only god will ever know
-
-        Sinister Rouge
-        Coming back for more to even the score
-        Sinister Rouge
-        Coming back for more to even the score
-
-        Give us this day our daily bread
-        And then you'll see we'll not forget
-        Lick the wounds, cleanse the land
-        The modern world rejects your hands
-
-        Sinister Rouge
-        Coming back for more to even the score
-        Sinister Rouge
-        Coming back for more to even the score
-
-      article.song#song-2.
-        Somewhere high in the desert near a curtain of a blue
-        St. Anne's skirts are billowing
-        But down here in the city of the lime lights
-        The fans of santa ana are withering
-        And you can’t deny that living is easy
-        If you never look behind the scenery
-        It's showtime for dry climes
-        And bedlam is dreaming of rain
-
-        When the hills of los angeles are burning
-        Palm trees are candles in the murder wind
-        So many lives are on the breeze
-        Even the stars are ill at ease
-        And los angeles is burning
-
-        This is not a test
-        Of the emergency broadcast system
-        Where malibu fires and radio towers
-        Conspire to dance again
-        And I cannot believe the media Mecca
-        They're only trying to peddle reality,
-        Catch it on prime time, story at nine
-        The whole world is going insane
-
-        When the hills of los angeles are burning
-        Palm trees are candles in the murder wind
-        So many lives are on the breeze
-        Even the stars are ill at ease
-        And los angeles is burning
-
-        A placard reads
-        "the end of days"
-        Jacaranda boughs are bending in the haze
-
-        More a question than a curse
-        How could hell be any worse?
-
-        The flames are stunning
-        The cameras running
-        So take warning
-
-        When the hills of los angeles are burnin
-        Palm trees are candles in the murder wind
-        So many lives are on the breeze
-        Even the stars are ill at ease
-        And los angeles is burning
-
-script.
-  var
-    searchbar = document.getElementById('searchbar'),
-    searchStyle = document.getElementById('searchStyle');
-
-
-  function refreshSongList () {
-    if (this.value.length > 0) {
-      searchStyle.innerHTML = "label:not([data-clue*='"+this.value +"']){display: none}";
-    } else {
-      searchStyle.innerHTML= '';
-    }
-
-  }
-
-  searchbar.addEventListener('keyup', refreshSongList);
+        h1 Hello
+        h2 Features
+        ul
+          li Togglable display between column and row (<span>default: column</span>)
+          li Togglable chords in tabs (<span>default: displayed</span>)
+          li Togglable menu with searchbar and a list of predefined tabs (<span>default: displayed</span>)
+script(src="dyrics.js")

@@ -1,0 +1,129 @@
+[
+    {
+        "title": "The Mamas & The Papas - California Dreamin'",
+        "active": true
+    },{
+        "title": "The Animals - The House of the Rising",
+        "active": true
+    },{
+        "title": "Rick Astley - Never Gonna Give You Up",
+        "active": true
+    },{
+        "title": "Toto - Africa",
+        "active": true
+    },{
+        "title": "Men At Work - Down Under",
+        "active": true
+    },{
+        "title": "Simon and Garfunkel - Mrs. Robinson",
+        "active": true
+    },{
+        "title": "Simon and Garfunkel - The Boxer",
+        "active": true
+    },{
+        "title": "Descendents - On Paper",
+        "active": true
+    },{
+        "title": "David Bowie - Space Oddity",
+        "active": true
+    },{
+        "title": "Jeff Buckley - Hallelujah",
+        "active": true
+    },{
+        "title": "Miley Cirus - Jolene",
+        "active": true
+    },{
+        "title": "Bad Religion - Los Angeles is burning",
+        "active": true
+    },{
+        "title": "Beirut - Elephant Gun",
+        "active": true
+    },{
+        "title": "Aznavour - Emmenez-moi",
+        "active": true
+    },{
+        "title": "Renaud - Dès que le vent soufflera",
+        "active": true
+    },{
+        "title": "Andréas et Nicolas - Je déteste le sexe",
+        "active": true
+    },{
+        "title": "Francis Cabrel - La Corrida",
+        "active": true
+    },{
+        "title": "Tryo - l'hymne de nos Campagnes",
+        "active": true
+    },{
+        "title": "Tryo - Con par raison",
+        "active": false
+    },{
+        "title": "Tryo - Le petit chose",
+        "active": false
+    },{
+        "title": "Tryo - La crise",
+        "active": true
+    },{
+        "title": "Tryo - Désolé pour hier soir",
+        "active": true
+    },{
+        "title": "Tryo - Les extrèmes",
+        "active": false
+    },{
+        "title": "Muse - Starlight",
+        "active": true
+    },{
+        "title": "Enter Shikari - System Meltdown",
+        "active": false
+    },{
+        "title": "Rhapsody - Emerald Sword",
+        "active": true
+    },{
+        "title": "simon and garfunkel - Sound of silence",
+        "active": true
+    },{
+        "title": "Nofx - 13 stiches",
+        "active": true
+    },{
+        "title": "Nofx - creeping out sarah",
+        "active": true
+    },{
+        "title": "Nofx - seeing double at the triple rock",
+        "active": true
+    },{
+        "title": "Nofx - i'm an alcoholic",
+        "active": true
+    },
+
+
+    {
+        "title": "Paramedicsss - Pirates",
+        "active": false
+    },{
+        "title": "Paramedicsss - War",
+        "active": false
+    },{
+        "title": "Paramedicsss - The One Where Yann Is An Hero",
+        "active": false
+    },{
+        "title": "Paramedicsss - Make me a Sandwich",
+        "active": false
+    },{
+        "title": "Paramedicsss - Why",
+        "active": false
+    },{
+        "title": "Paramedicsss - Amsterdam",
+        "active": false
+    },{
+        "title": "Paramedicsss - Camping Trip @ Z",
+        "active": false
+    },{
+        "title": "SBS - Monkey",
+        "active": false
+    },{
+        "title": "Bad Religion - Sinister Rouge",
+        "active": false
+    },{
+        "title": "Mute - Bates Motel",
+        "active": false
+    }
+]

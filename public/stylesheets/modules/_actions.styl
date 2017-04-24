@@ -1,0 +1,83 @@
+.action-label
+  border: 1px solid $primary-color
+  font-size: 1.25em
+  cursor: pointer
+  position: absolute
+  top: 1em
+  right: 1em
+  width: 1em
+  height: 1em
+  line-height: 0.75
+  z-index: 1
+  text-align: center
+  font-weight: 300
+  opacity: 0.5
+  transform: translateX(50%) translateY(-50%) translateZ(1px)
+  transition: all 0.2s
+  &:hover
+    opacity: 0.8
+  &:active
+    opacity: 1
+
+// × sign to toggle the nav
+#nav-toggler
+  position: absolute
+  right: auto
+  top: 1.7em
+  left: 1.5em
+  width: 1em
+  height: 1em
+  z-index: 2
+  transform: translateX(-50%) translateY(-50%) translateZ(1px)
+  color: $primary-color
+  text-align: center
+  border: 0
+  background: none
+  &:before
+    content: '×'
+    font-size: 2.15em
+  .nav-toggled &
+    background: linear-gradient(0deg, $primary-color 0%, $primary-color 15%, transparent 15.001%, transparent 43.5%, $primary-color 43.501%, $primary-color 57.5%, transparent 57.501%, transparent 85%, $primary-color 85.001%, $primary-color 100%)
+    &:before
+      opacity 0
+
+.nav-toggled
+  .nav
+    opacity 0
+    transform: translateX(-100%) translateZ(1px)
+    flex: 1 1 0%
+  .song-list
+    flex: 1 1 100%
+    margin-left: 0
+
+
+#chords-toggler
+  top: 1.5em
+  right: 4em
+  color: $primary-color
+  background: $dark
+  &:hover
+    opacity: 1
+  &:before
+    content: '♪'
+  .chords-toggled &
+    color: $dark
+    background: $primary-color
+.chords-toggled .song span
+  transform: scale(0.5)
+  opacity: 0
+
+
+#columns-toggler
+  top: 1.5em
+  right: 1.5em
+  background: linear-gradient(90deg, $primary-color 0%, transparent 100%)
+  width: 1.6em
+  height: 1em
+  &:hover
+    opacity: 1
+  .columns-toggled &
+    background: linear-gradient(0deg, transparent 0%, $primary-color 100%)
+    height: 1.4em
+.columns-toggled .song:not(#song-0)
+  columns: 1
