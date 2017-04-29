@@ -26,8 +26,13 @@ module.exports = function(html) {
                 cells.shift();
             }
 
-            // This is gonna be quite a bit magical.
-            if ((cells[3].childNodes.length) && (cells[3].childNodes[0].childNodes[0].value === 'chords')) {
+            // Check if its :  tab pro // chords pro // chords // tab
+            var typeCell = cells.pop().childNodes.filter(function(node) {
+                return node.nodeName === 'strong';
+            })[0].childNodes[0];
+            var type = typeCell.value;
+
+            if (type === 'chords') {
                 var url = findAttributeValue(cells[1].childNodes[1].childNodes[1], 'href'),
 
                     nbStars = !(cells[2].childNodes.length && 'childNodes' in cells[2].childNodes[0]) ? 0 :
