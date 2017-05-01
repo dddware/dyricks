@@ -7,7 +7,7 @@
   right: 1em
   width: 1em
   height: 1em
-  line-height: 0.75
+  line-height: 0.9
   z-index: 1
   text-align: center
   font-weight: 300
@@ -85,13 +85,18 @@
 
 
 #source-toggler
-  right: 7em
+  right: 5.75em
   top: 1.5em
-  padding: 0 0.1em
+  padding: 0 0.25em
+  line-height 0.635
   width auto
   color $primary-color
+  transform: translateY(-50%) translateZ(1px)
   &:after
-    font-size 0.875em
+    text-transform uppercase
+    font-weight 600
+    font-size 0.5em
+    letter-spacing 0.1em
     content 'genius'
 body[data-chords] #source-toggler:after
   content 'ug'

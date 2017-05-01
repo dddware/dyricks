@@ -9,13 +9,15 @@
     "pug": "^2.0.0-beta6",
     "request": "^2.79.0",
     "request-promise": "^4.1.1",
-    "stylus": "^0.54.5"
+    "stylus": "^0.54.5",
+    "watch": "^1.0.2"
   },
   "scripts": {
     "autoprefixer": "postcss --use autoprefixer -o public/stylesheets/dyrics.css public/stylesheets/dyrics.css",
     "stylus": "stylus --watch public/stylesheets/style.styl -o public/stylesheets/dyrics.css",
     "css": "npm run stylus & npm run autoprefixer",
     "server": "node server.js",
-    "start": "npm run css & npm run server"
+    "watch": "watch 'npm run server' .",
+    "start": "clear && npm run css & npm run server"
   }
 }

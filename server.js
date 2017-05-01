@@ -29,7 +29,7 @@ app.get('/ug(\.html)?', function(req, res) {
     var toHtml = req.path.match(/\.html$/);
 
     res.append('Content-Type', 'text/' + toHtml ? 'html' : 'plain');
-
+    console.log("UG Search Url : \n > " + getUgSearchUrl(req.query.q))
     rp(getUgSearchUrl(req.query.q))
         .then(parseChordsList)
         .then(reduceToBestChords)
